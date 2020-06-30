@@ -81,36 +81,6 @@ class SignIn extends React.Component {
                 })
             }
         }
-      /*  axios.post(`${api}auth/signin`, body)
-            .then((response) => {
-                if (response.data.id) {
-                    this.setState({errorMsg:``})
-                    let {id} = response.data;
-                    id = id.toString();
-                    this.storeToken(id);
-                    Toast.show({
-                        text: "Success",
-                        buttonText: "Okay",
-                    })
-                    // this.props.navigation.reset({
-                    //     index: 0,
-                    //     routes: [{ name: 'Home' }],
-                    // });
-                } else {
-                    Toast.show({
-                        text: "Incorrect email / password",
-                        buttonText: "Warning",
-                    })
-                }
-            }).catch((error) => {
-            if (error.response) {
-                const errorMsg = error.response.data.message
-                console.log('errorMsg:', errorMsg)
-                this.setState({
-                    errorMsg: errorMsg
-                })
-            }
-        });*/
     }
 
     render() {

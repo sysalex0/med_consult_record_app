@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 import {NavigationContainer} from "@react-navigation/native";
 import {AsyncStorage} from "react-native";
 import createConsultationRecord from "../Containers/CreateConsultationRecordScreen";
+import {setLoginId} from "../../actions/login";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,13 @@ class Navigation extends React.Component {
         this.state = {
             isSignedIn: false,
         };
+    }
+
+    async componentDidMount() {
+        const loginId = await this.getToken()
+        if(loginId){
+            this.props.setLoginId(loginId)
+        }
     }
 
     async getToken() {
@@ -53,7 +61,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-
+        setLoginId: id=>dispatch(setLoginId(id))
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
